@@ -1,8 +1,11 @@
-FROM node:17.5.0-alpine
+FROM node:13.12.0-alpine
 WORKDIR /app/frontend
+ENV NODE_ENV development
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm install 
+RUN npm install react-scripts@5.0.1 -g 
+ENV CHOKIDAR_USEPOLLING=true
 COPY . ./
 EXPOSE 3000
 CMD ["npm", "start"]

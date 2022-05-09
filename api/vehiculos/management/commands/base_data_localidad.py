@@ -30,7 +30,6 @@ class Command(BaseCommand):
         Estado.objects.bulk_create(objs)
         df_mun = df[["Cve_Ent","Cve_Mun","Nom_Mun"]].copy() 
         row_iter = df_mun.drop_duplicates()
-        print(row_iter)
         row_iter = row_iter.iterrows()
         objs = [
     		Municipio(
