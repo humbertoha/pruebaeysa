@@ -57,14 +57,11 @@ class Ruta(models.Model):
     fechaModificacion = models.DateTimeField(auto_now=True)
 
 class Paradas(models.Model):
-    latitud = models.FloatField()
-    Longitud = models.FloatField()
     Id_localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
     fechaCreacion = models.DateTimeField(auto_now_add=True)
     fechaModificacion = models.DateTimeField(auto_now=True)
-    activa = models.BooleanField()
     id_ruta = models.ForeignKey(Ruta, on_delete=models.CASCADE)
 
-class Ruta_Vehiculos():
-    id_vehiculos = models.ForeignKey(Ruta, on_delete=models.CASCADE)
-    id_ruta = models.ForeignKey(Vehiculos, on_delete=models.CASCADE)
+class Ruta_Vehiculos(models.Model):
+    id_vehiculos = models.ForeignKey(Vehiculos, on_delete=models.CASCADE)
+    id_ruta = models.ForeignKey(Ruta, on_delete=models.CASCADE)

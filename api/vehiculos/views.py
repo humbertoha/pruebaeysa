@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import VehiculosSerializer,EstadoSerializer,RutaSerializer,ParadasSerializer,LocalidadSerializer,MunicipioSerializer
-from .models import Vehiculos,Estado,Municipio,Localidad,Ruta,Paradas
+from .serializers import VehiculosSerializer,EstadoSerializer,RutaVehiculosSerializer,RutaSerializer,ParadasSerializer,LocalidadSerializer,MunicipioSerializer
+from .models import Vehiculos,Estado,Municipio,Localidad,Ruta,Paradas,Ruta_Vehiculos
 from django.http import HttpResponse
-
+ 
 # Create your views here.
 class VehiculoView(viewsets.ModelViewSet):
     serializer_class = VehiculosSerializer
@@ -36,6 +36,10 @@ class RutaView(viewsets.ModelViewSet):
 class ParadasView(viewsets.ModelViewSet):
     serializer_class = ParadasSerializer
     queryset = Paradas.objects.all()
+
+class RutaVehiculosView(viewsets.ModelViewSet):
+    serializer_class = RutaVehiculosSerializer
+    queryset = Ruta_Vehiculos.objects.all()
 
 
 def index(request):

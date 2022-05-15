@@ -48,7 +48,7 @@ class Command(BaseCommand):
     			Nombre = row['Nom_Loc'],
     			Latitud = row["Lat_Decimal"],
 				Longitud = row["Lon_Decimal"],
-    			Id_municipio = Municipio(id=row['Cve_Mun']),
+    			Id_municipio = Municipio.objects.get(municipio=row['Cve_Mun'],Id_estado=Estado(id=row['Cve_Ent'])),
     			Id_estado = Estado(id=row['Cve_Ent'])
     			)
     		for index, row in row_iter
