@@ -3,7 +3,7 @@ WORKDIR /app/frontend
 ENV NODE_ENV development
 
 COPY package.json ./
-RUN npm install 
+RUN npm install -q
 RUN npm install react-scripts@5.0.1 -g 
 ENV CHOKIDAR_USEPOLLING=true
 COPY . ./

@@ -74,7 +74,7 @@ Consulta la instalacion de tu distribucion
 ```sh
 git clone https://github.com/humbertoha/pruebaeysa.git
 cd pruebaeysa
-docker-compose --build
+docker-compose build
 ```
 Para cargar el catalogo de Estado ,municipio y localidad 
 informacion obtenida del Inegi https://www.inegi.org.mx/app/ageeml/ Catálogo Único de Claves de Áreas Geoestadísticas Estatales, Municipales y Localidades
@@ -95,6 +95,12 @@ Para leventar el servicio
 ```sh
  $ docker-compose up
 ```
+
+si tiene problema de "react not found" ejecutar 
+```sh
+ $ docker-compose -f .\docker-compose.yml run --rm django frontend  npm install
+```
+
 
 ## Django app
 http://127.0.0.1:8000
